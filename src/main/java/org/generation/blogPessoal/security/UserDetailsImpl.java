@@ -26,7 +26,7 @@ private static final long serialVersionUID =1L;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return authorities;
 	}
 
 	@Override
