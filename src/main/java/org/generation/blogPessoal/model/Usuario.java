@@ -41,18 +41,23 @@ import io.swagger.v3.oas.annotations.media.Schema;
 		@Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
 		private String foto;
 
+		
+		private String tipo;
+	
+		
 		@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 		@JsonIgnoreProperties("usuario")
 		private List<Postagem> postagem;
 
 		
-		public Usuario(Long id,  String nome, String usuario, String senha, String foto) {
+		public Usuario(Long id,  String nome, String usuario, String senha, String foto, String tipo) {
 			super();
 			this.id = id;
 			this.nome = nome;
 			this.usuario = usuario;
 			this.senha = senha;
 			this.foto = foto;
+			this.tipo = tipo;
 		
 		}
 
@@ -99,6 +104,22 @@ import io.swagger.v3.oas.annotations.media.Schema;
 		public void setFoto(String foto) {
 			this.foto = foto;
 		}
+
+		
+		public String getTipo() {
+			return tipo;
+		}
+
+
+		public void setTipo(String tipo) {
+			this.tipo = tipo;
+		}
+
+
+		public void setPostagem(List<Postagem> postagem) {
+			this.postagem = postagem;
+		}
+
 
 		public List<Postagem> getPostagem() {
 			return this.postagem;
